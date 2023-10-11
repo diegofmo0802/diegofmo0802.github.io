@@ -4,7 +4,8 @@
     justify-content: center;
 }
 .Divide_H {
+    aspect-ratio: 2 / 1;
     display: flex;
     flex-direction: row;
-    
+    width: 100%;
 }
