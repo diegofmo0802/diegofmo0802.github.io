@@ -3,3 +3,8 @@
     display: flex;
     justify-content: center;
 }
+.Divide_H {
+    display: flex;
+    flex-direction: row;
+    
+}
