@@ -54,7 +54,12 @@
         }
     }
 }
-@media (max-width: 849px) {
+@media (max-width: 425px) {
+    #Page {
+        padding: 4px;
+    }
+}
+@media (max-width: 850px) {
     #Content {
         max-width: 425px;
         width: 100%;
