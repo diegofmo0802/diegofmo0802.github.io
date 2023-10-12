@@ -20,6 +20,7 @@
     background-color: #050505;
     height: max-content;
     min-height: 100%;
+    width: calc(850px + 4em);
     padding: 2em;
 }
 #Presentation {
@@ -54,8 +55,12 @@
     }
 }
 @media (max-width: 849px) {
+    #Content {
+        max-width: 425px;
+        width: 100%;
+    }
     #Presentation {
-        width: 425px;
+        width: 100%;
         > .AboutMe {
             flex-direction: column-reverse;
             > .Description {
