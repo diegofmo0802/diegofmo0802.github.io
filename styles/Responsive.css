@@ -1,0 +1,29 @@
+@media (max-width: 452px) {
+    #Page {
+        padding: 4px;
+    }
+}
+@media (max-width: 850px) {
+    #Content {
+        max-width: 425px;
+        width: 100%;
+    }
+    #Presentation {
+        width: 100%;
+        > .AboutMe {
+            flex-direction: column-reverse;
+            > .Description {
+                width: 100%;
+            }
+            > .Logo {
+                width: 100%;
+            }
+        }
+    }
+    #Projects {
+        width: 100%;
+        .PVersion{
+            display: none;
+        }
+    }
+}
