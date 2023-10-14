@@ -5,8 +5,13 @@
     padding: 0px;
     user-select: none;
 }
+.Titulo {
+    text-align: center;
+    padding: 0.5em;
+}
 #Page {
     background-color: #000000;
+    color: #FFFFFF;
     display: flex;
     height: 100%;
     justify-content: center;
@@ -33,7 +38,6 @@
         border-radius: 10PX;
         > .Description {
             aspect-ratio: 1 / 1;
-            color: #FFFFFF;
             flex: 0 0 auto;
             margin-block-start: 0px;
             margin-block-end: 0px;
@@ -63,7 +67,6 @@
     > table {
         background-color: #000020;
         border-radius: 10PX;
-        color: #FFFFFF;
         > tr {
             margin: 2px;
             > * {
