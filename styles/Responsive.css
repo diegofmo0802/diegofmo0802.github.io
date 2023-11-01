@@ -20,7 +20,7 @@
             }
         }
     }
-    #Projects {
+    #Projects, #Tools {
         width: 100%;
         .PVersion{
             display: none;

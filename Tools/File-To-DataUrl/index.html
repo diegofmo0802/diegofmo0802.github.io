@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fuentes a DataUrl</title>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0px;
+                padding: 0px;
+                user-select: none;
+            }
+            ::-webkit-scrollbar {
+                background-color: #DCFFB480;
+                height: 5px;
+                width: 5px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #DCFFB4;
+                border-radius: 1em;
+            }
+            ::-webkit-scrollbar-button {
+                display: none;
+            }
+            #App {
+                background-color: #000000;
+                height: 100%;
+                overflow-y: scroll;
+                position: fixed;
+                width: 100%;
+                #Convert{
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1em;
+                    .Texto {
+                        text-align: center;
+                        color: #FFFFFF;
+                    }
+                    #File {
+                        display: block;
+                        width: 25%;
+                        .Icon {
+                            background-color: #00DCFF20;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            filter: drop-shadow(0px, 0px, 1em, #FFB4DC);
+                            padding: 0.5em;
+                            width: 100%;
+                        }
+                        .Icon:hover {
+                            background-color: #00DCFF88;
+                        } 
+                    }
+                    #Font {
+                        display: none;
+                    }
+                    #LoadBar {
+                        background-color: #505050;
+                        height: 0.4em;
+                        margin-top: 3em;
+                        padding: 0.1em;
+                        width: 60%;
+                        #Load {
+                            background-color: #FFB4DC;
+                            height: 100%;
+                            transition: width 250ms;
+                            width: 0%;
+                        }
+                    }
+                    #Out, #Content {
+                        background-color: #DCFFB480;
+                        color: #FFb4DC;
+                        font-family: monospace;
+                        height: 4em;
+                        margin-top: 0.25em;
+                        overflow: hidden scroll;
+                        padding: 0.5em;
+                        text-align: center;
+                        width: 75%;
+                    }
+                    #Content {
+                        cursor: pointer;
+                        overflow: auto-;
+                        user-select: all;
+                    }
+                    #Content:hover {
+                        background-color: #DCFFB4a0;
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="App">
+            <div id="Convert">
+                <a href="../../"><h2>Atrás</h2></a>
+                <h1 class="Texto">Convertir Archivo a DataUrl</h1>
+                <label id="File" for="Font">
+                    <img class="Icon" src="/source/icon/Saml.svg"/>
+                    <p class="Texto">Seleccionar..</p>
+                </label>
+                <input type="file" id="Font"/>
+                <div id="LoadBar">
+                    <div id="Load"></div>
+                </div>
+                <p id="Out">
+                    -----> OUT <-----
+                </p>
+                <div id="Content"></div>
+            </div>
+        </div>
+        <script>
+            const InFont = document.querySelector('#Font');
+            const Content = document.querySelector('#Content');
+            const LoadBar = document.querySelector('#Load');
+            const Out = document.querySelector('#Out');
+            const Send = (Message) => { Out.innerText = Message + '\n' + Out.innerText; };
+            Content.addEventListener('click', () => {
+                if (Content.innerText.length > 0) {
+                    navigator.clipboard.writeText(Content.innerText).then(() => {
+                        Send('Texto copiado');
+                    }).catch(() => {
+                        Send('Error al copiar el texto')
+                    });
+                } else {
+                    Send('No hay texto que copiar');
+                }
+            });
+            InFont.addEventListener('change', () => {
+                Send('Cambio detectado en el input file');
+                let Files = InFont.files;
+                if (Files && Files.length > 0) {
+                    Send('Archivo encontrado');
+                    LoadBar.style = "width: 0%;";
+                    let Font = Files[0];
+                    let Reader = new FileReader();
+                    Reader.addEventListener('progress', (Event) => {
+                        if (Event.lengthComputable) {
+                            LoadBar.style = `width: ${(Event.loaded/Event.total)*100}%;`;
+                        } else {
+                            Send('No es posible cargar la progressBar')
+                            Send('Se mostrara cuando finalize el proceso en el panel OUT');
+                        }
+                    });
+                    Reader.addEventListener('loadend', () => {
+                        Send('Conversion Completa')
+                        Content.innerText = Reader.result;
+                    });
+                    Send('Convirtiendo a DataUrl...');
+                    Reader.readAsDataURL(Font);
+                }
+            });
+        </script>
+    </body>
+</html>
