@@ -67,6 +67,7 @@
     > table {
         background-color: #000020;
         border-radius: 10PX;
+        width: 100%;
         > tr {
             margin: 2px;
             > * {
