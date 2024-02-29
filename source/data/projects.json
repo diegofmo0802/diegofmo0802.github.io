@@ -1,12 +1,18 @@
 [
     {
         "name": "Server core",
-        "current_version": "2.0.0",
+        "current_version": "3.5.2",
         "description": "Permite crear servidores HTTP/S, gestionar conexiones WS/S y próximamente gestionar conexiones WebRTP y notificaciones WebPush",
         "url": "https://github.com/diegofmo0802/ServerCore"
     },
     {
-        "name": "WebApp manager",
+        "name": "Beta - Server core",
+        "current_version": "3.6.0-Dev.3",
+        "description": "Version Beta de Saml - Server core",
+        "url": "https://github.com/diegofmo0802/ServerCore/tree/Dev"
+    },
+    {
+        "name": "(En espera) - WebApp manager",
         "current_version": "2.0.0",
         "description": "Sin descripción",
         "url": "https://github.com/diegofmo0802/WebApp"
