@@ -1,13 +1,13 @@
 [
     {
         "name": "Server core",
-        "current_version": "3.5.2",
+        "current_version": "3.6.5",
         "description": "Permite crear servidores HTTP/S, gestionar conexiones WS/S y próximamente gestionar conexiones WebRTP y notificaciones WebPush",
         "url": "https://github.com/diegofmo0802/ServerCore"
     },
     {
         "name": "Beta - Server core",
-        "current_version": "3.6.0-Dev.3",
+        "current_version": "3.6.0-Dev.8",
         "description": "Version Beta de Saml - Server core",
         "url": "https://github.com/diegofmo0802/ServerCore/tree/Dev"
     },
